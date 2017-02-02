@@ -5,32 +5,33 @@
     <!-- General project settings. -->
 
     <groupId>de.citec.csra</groupId>
-    <artifactId>rsbtests</artifactId>
+    <artifactId>arbitration-service-perf-tests</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>rsbtests</name>
+    <name>arbitration-service-perf-tests</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <target.java.version>1.7</target.java.version>
+        <target.java.version>1.8</target.java.version>
+		<rsx.version>[0.15,0.16-SNAPSHOT)</rsx.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>rsb</groupId>
             <artifactId>rsb</artifactId>
-            <version>0.15-SNAPSHOT</version>
+            <version>${rsx.version}</version>
         </dependency>
         <dependency>
             <groupId>rsb</groupId>
             <artifactId>rst-sandbox</artifactId>
-            <version>0.15-SNAPSHOT</version>
+            <version>${rsx.version}</version>
         </dependency>
         <dependency>
             <groupId>rsb</groupId>
             <artifactId>rst</artifactId>
-            <version>0.15-SNAPSHOT</version>
+            <version>${rsx.version}</version>
         </dependency>
         <dependency>
             <groupId>rsb.performance</groupId>
