@@ -15,6 +15,7 @@ import rst.communicationpatterns.ResourceAllocationType.ResourceAllocation;
 import rst.communicationpatterns.ResourceAllocationType.ResourceAllocation.Initiator;
 import rst.communicationpatterns.ResourceAllocationType.ResourceAllocation.Policy;
 import rst.communicationpatterns.ResourceAllocationType.ResourceAllocation.Priority;
+import static rst.communicationpatterns.ResourceAllocationType.ResourceAllocation.State.REQUESTED;
 import rst.timing.IntervalType.Interval;
 import rst.timing.TimestampType.Timestamp;
 
@@ -38,9 +39,10 @@ public class GenerateResourceAllocationAction extends ActionSupport<Object> {
 	public Object execute(final ParameterSet parameters) throws	SpecificationException, ExecutionException, InterruptedException {
 		return ResourceAllocation.newBuilder().
 				setId(UUID.randomUUID().toString()).
-				setInitiator(Initiator.valueOf(RANDOM.nextInt(Initiator.values().length))).
-				setPolicy(Policy.valueOf(RANDOM.nextInt(Policy.values().length))).
-				setPriority(Priority.valueOf(RANDOM.nextInt(Priority.values().length))).
+				setState(REQUESTED).
+				setInitiator(Initiator.values()[RANDOM.nextInt(Initiator.values().length)]).
+				setPolicy(Policy.values()[RANDOM.nextInt(Policy.values().length)]).
+				setPriority(Priority.values()[RANDOM.nextInt(Priority.values().length)]).
 				setSlot(
 					Interval.newBuilder().
 						setBegin(Timestamp.newBuilder().setTime(System.currentTimeMillis() + RANDOM.nextInt(DELAY))).
